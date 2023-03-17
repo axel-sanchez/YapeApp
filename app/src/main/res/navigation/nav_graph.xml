@@ -9,5 +9,19 @@
         android:id="@+id/recipesFragment"
         android:name="com.example.yapeapp.presentation.RecipesFragment"
         android:label="fragment_recipes"
-        tools:layout="@layout/fragment_recipes" />
+        tools:layout="@layout/fragment_recipes" >
+        <action
+            android:id="@+id/action_recipesFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.yapeapp.presentation.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="idRecipe"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
 </navigation>

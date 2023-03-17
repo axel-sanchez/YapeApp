@@ -2,6 +2,18 @@ package com.example.yapeapp.di.module
 
 import android.content.Context
 import androidx.room.Room
+import com.example.yapeapp.data.room.Database
+import com.example.yapeapp.data.repository.RecipeRepositoryImpl
+import com.example.yapeapp.data.service.ApiClient
+import com.example.yapeapp.data.service.ApiServiceRecipe
+import com.example.yapeapp.data.source.RecipeLocalSource
+import com.example.yapeapp.data.source.RecipeLocalSourceImpl
+import com.example.yapeapp.data.source.RecipeRemoteSource
+import com.example.yapeapp.data.source.RecipeRemoteSourceImpl
+import com.example.yapeapp.domain.repository.RecipeRepository
+import com.example.yapeapp.domain.usecase.GetAllRecipesUseCase
+import com.example.yapeapp.domain.usecase.GetAllRecipesUseCaseImpl
+import com.example.yapeapp.helpers.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -9,48 +21,44 @@ import javax.inject.Singleton
 /**
  * @author Axel Sanchez
  */
-//@Module
+@Module
 class ApplicationModule(private val context: Context){
-    /*@Provides
+    @Provides
     @Singleton
-    fun provideGetProductUseCase(getProductUseCase: GetProductUseCaseImpl): GetProductUseCase = getProductUseCase
+    fun provideRecipeRepository(recipeRepository: RecipeRepositoryImpl): RecipeRepository = recipeRepository
 
     @Provides
     @Singleton
-    fun provideProductRepository(productRepository: ProductRepositoryImpl): ProductRepository = productRepository
+    fun provideRecipeRemoteSource(recipeRemoteSource: RecipeRemoteSourceImpl): RecipeRemoteSource = recipeRemoteSource
 
     @Provides
     @Singleton
-    fun provideProductRemoteSource(productRemoteSource: ProductRemoteSourceImpl): ProductRemoteSource = productRemoteSource
+    fun provideGetAllRecipesUseCase(getAllRecipesUseCase: GetAllRecipesUseCaseImpl): GetAllRecipesUseCase = getAllRecipesUseCase
 
     @Provides
     @Singleton
-    fun provideGetAllProductsUseCase(getAllProductsUseCase: GetAllProductsUseCaseImpl): GetAllProductsUseCase = getAllProductsUseCase
-
-    @Provides
-    @Singleton
-    fun provideApiServiceProduct(): ApiServiceProduct{
-        return ApiClient.Builder<ApiServiceProduct>()
+    fun provideApiServiceRecipe(): ApiServiceRecipe {
+        return ApiClient.Builder<ApiServiceRecipe>()
             .setBaseUrl(BASE_URL)
-            .setApiService(ApiServiceProduct::class.java)
+            .setApiService(ApiServiceRecipe::class.java)
             .build()
     }
 
     @Provides
     @Singleton
-    fun provideDatabase(context: Context): Database{
+    fun provideDatabase(context: Context): Database {
         return Room
-            .databaseBuilder(context, Database::class.java, "GlobalLogicDB.db3")
+            .databaseBuilder(context, Database::class.java, "YapeDB.db3")
             .build()
     }
 
     @Provides
     @Singleton
-    fun provideProductLocalSource(database: Database): ProductLocalSource{
-        return ProductLocalSourceImpl(database.productDao())
+    fun provideRecipeLocalSource(database: Database): RecipeLocalSource {
+        return RecipeLocalSourceImpl(database.recipeDao())
     }
 
     @Provides
     @Singleton
-    fun provideContext(): Context = context*/
+    fun provideContext(): Context = context
 }
