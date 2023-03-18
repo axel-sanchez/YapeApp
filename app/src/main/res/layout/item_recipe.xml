@@ -27,8 +27,9 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="24sp"
+            android:layout_gravity="center_vertical"
             android:layout_margin="@dimen/text_margin"
-            tools:text="Pollo al disco con ensalada de papa con huevo"
+            tools:text="Pollo al disco"
             android:textAppearance="?attr/textAppearanceListItem" />
 
     </LinearLayout>

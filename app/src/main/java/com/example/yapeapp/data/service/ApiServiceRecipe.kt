@@ -8,6 +8,6 @@ import retrofit2.http.GET
  * @author Axel Sanchez
  */
 interface ApiServiceRecipe{
-    @GET("list")
+    @GET("recipes")
     suspend fun getRecipes(): Response<List<Recipe?>?>
 }

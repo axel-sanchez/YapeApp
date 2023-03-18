@@ -13,6 +13,8 @@ import com.example.yapeapp.data.source.RecipeRemoteSourceImpl
 import com.example.yapeapp.domain.repository.RecipeRepository
 import com.example.yapeapp.domain.usecase.GetAllRecipesUseCase
 import com.example.yapeapp.domain.usecase.GetAllRecipesUseCaseImpl
+import com.example.yapeapp.domain.usecase.GetRecipeUseCase
+import com.example.yapeapp.domain.usecase.GetRecipeUseCaseImpl
 import com.example.yapeapp.helpers.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -30,6 +32,10 @@ class ApplicationModule(private val context: Context){
     @Provides
     @Singleton
     fun provideRecipeRemoteSource(recipeRemoteSource: RecipeRemoteSourceImpl): RecipeRemoteSource = recipeRemoteSource
+
+    @Provides
+    @Singleton
+    fun provideGetRecipeUseCase(getRecipeUseCase: GetRecipeUseCaseImpl): GetRecipeUseCase = getRecipeUseCase
 
     @Provides
     @Singleton
