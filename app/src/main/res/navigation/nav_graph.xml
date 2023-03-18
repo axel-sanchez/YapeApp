@@ -23,5 +23,21 @@
             android:name="idRecipe"
             app:argType="long"
             android:defaultValue="0L" />
+        <action
+            android:id="@+id/action_detailsFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.example.yapeapp.presentation.LocationFragment"
+        android:label="LocationFragment" >
+        <argument
+            android:name="idLongitude"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="idLatitude"
+            app:argType="string"
+            android:defaultValue="" />
     </fragment>
 </navigation>

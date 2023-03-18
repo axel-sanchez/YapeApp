@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.yapeapp.R
 import com.example.yapeapp.core.MyApplication
 import com.example.yapeapp.data.model.Recipe
 import com.example.yapeapp.databinding.FragmentDetailsBinding
@@ -58,13 +61,27 @@ class DetailsFragment : Fragment() {
         }
     }
 
-    private fun updateView(product: Recipe?) {
+    private fun updateView(recipe: Recipe?) {
         with(binding){
-            product?.let {
-                name.text = it.name
-                description.text = it.description
-                imageView.load(it.image)
+            recipe?.let {
+                tvName.text = it.name
+                tvDescription.text = it.description
+                ivImage.load(it.image)
+            }
+
+            val bundle = bundleOf(
+                ID_LATITUDE to recipe?.latitude,
+                ID_LONGITUDE to recipe?.longitude
+            )
+
+            btnLocation.setOnClickListener{
+                findNavController().navigate(R.id.action_detailsFragment_to_locationFragment, bundle)
             }
         }
+    }
+
+    companion object {
+        const val ID_LATITUDE = "idLatitude"
+        const val ID_LONGITUDE = "idLongitude"
     }
 }

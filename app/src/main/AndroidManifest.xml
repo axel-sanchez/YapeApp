@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:name=".core.MyApplication"
@@ -15,6 +17,11 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.YapeApp"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBdAhA3V8bbRcrnmEma9Wpp8s8qQz_yS4Q" />
+
         <activity
             android:name=".presentation.MainActivity"
             android:exported="true">
