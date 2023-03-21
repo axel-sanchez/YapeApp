@@ -2,13 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:name="com.example.globallogicapp.ui.ProductFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/dp16"
     android:layout_marginTop="@dimen/dp10"
     android:layout_marginRight="@dimen/dp16"
     tools:context=".presentation.RecipesFragment">
+
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:maxLines="1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="@string/buscar_receta" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/empty_state"
@@ -36,9 +45,10 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
+        android:id="@+id/rvRecipes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp60"
         app:layoutManager="LinearLayoutManager"
         android:visibility="gone"
         tools:listitem="@layout/item_recipe"/>

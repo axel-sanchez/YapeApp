@@ -1,11 +1,10 @@
 package com.example.yapeapp.presentation
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +19,7 @@ import com.example.yapeapp.helpers.hide
 import com.example.yapeapp.helpers.show
 import com.example.yapeapp.presentation.adapters.RecipeAdapter
 import com.example.yapeapp.presentation.viewmodel.RecipesViewModel
+import java.util.*
 import javax.inject.Inject
 
 /**
@@ -65,14 +65,17 @@ class RecipesFragment : Fragment() {
                 left = {
                     emptyState.show()
                     errorText.text = getString(R.string.error_api_products)
-                    list.hide()
+                    rvRecipes.hide()
+                    etSearch.hide()
                 }, right = {
                     if ((response as Either.Right).r.isEmpty()) {
-                        list.hide()
+                        rvRecipes.hide()
+                        etSearch.hide()
                         errorText.text = getString(R.string.there_is_not_products)
                         emptyState.show()
                     } else {
-                        list.show()
+                        etSearch.show()
+                        rvRecipes.show()
                         setAdapter(response.r)
                     }
                 }
@@ -82,9 +85,16 @@ class RecipesFragment : Fragment() {
     }
 
     private fun setAdapter(recipes: List<Recipe?>) {
-        with(binding.list) {
+        val recipeAdapter = RecipeAdapter(recipes) { itemClick(it) }
+        with(binding.rvRecipes) {
             layoutManager = LinearLayoutManager(context)
-            adapter = RecipeAdapter(recipes) { itemClick(it) }
+            adapter = recipeAdapter
+        }
+        binding.etSearch.addTextChangedListener {
+            val filteredList = recipes.filter { recipe ->
+                recipe?.name?.lowercase(Locale.getDefault())?.contains(it.toString().lowercase(Locale.getDefault()))?:false
+            }
+            recipeAdapter.updateRecipes(filteredList)
         }
     }
 

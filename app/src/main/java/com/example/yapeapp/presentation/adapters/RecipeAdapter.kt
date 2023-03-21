@@ -14,7 +14,7 @@ import com.example.yapeapp.data.model.Recipe
  * @author Axel Sanchez
  */
 class RecipeAdapter(
-    private val values: List<Recipe?>,
+    private var recipes: List<Recipe?>,
     private val itemClick: (Recipe?) -> Unit
 ) : RecyclerView.Adapter<RecipeAdapter.ViewHolder>() {
 
@@ -24,7 +24,7 @@ class RecipeAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = values[position]
+        val item = recipes[position]
 
         item?.let { recipe ->
 
@@ -36,7 +36,11 @@ class RecipeAdapter(
         }
     }
 
-    override fun getItemCount(): Int = values.size
+    override fun getItemCount(): Int = recipes.size
+    fun updateRecipes(filteredList: List<Recipe?>) {
+        recipes = filteredList
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.image)
