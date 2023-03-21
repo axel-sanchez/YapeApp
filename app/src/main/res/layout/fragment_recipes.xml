@@ -5,20 +5,20 @@
     android:name="com.example.globallogicapp.ui.ProductFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginRight="16dp"
+    android:layout_marginLeft="@dimen/dp16"
+    android:layout_marginTop="@dimen/dp10"
+    android:layout_marginRight="@dimen/dp16"
     tools:context=".presentation.RecipesFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/empty_state"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="24dp"
-        android:layout_margin="12dp"
-        app:cardCornerRadius="6dp"
+        android:padding="@dimen/dp24"
+        android:layout_margin="@dimen/dp12"
+        app:cardCornerRadius="@dimen/dp6"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardBackgroundColor="#FCFCFC"
+        app:cardBackgroundColor="@color/background_white"
         android:visibility="gone">
         <LinearLayout
             android:id="@+id/empty_state_empty_items"
@@ -29,9 +29,9 @@
                 android:id="@+id/errorText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
+                android:padding="@dimen/dp8"
                 android:gravity="center"
-                android:textSize="18sp" />
+                android:textSize="@dimen/sp18" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
