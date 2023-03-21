@@ -26,8 +26,8 @@ class RecipesFragmentTest {
     @Test
     fun should_show_recyclerview_and_hide_progress_and_message() {
         onView(withId(R.id.rvRecipes)).check(matches(isDisplayed()))
-        onView(withId(R.id.progress)).check(matches(not(isDisplayed())))
-        onView(withId(R.id.empty_state)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.CPILoading)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.cvEmptyState)).check(matches(not(isDisplayed())))
     }
 
     @Test
@@ -42,7 +42,7 @@ class RecipesFragmentTest {
         onView(withId(R.id.tvName)).check(matches(withText("Ceviche")))
         pressBack()
         onView(withId(R.id.rvRecipes)).check(matches(isDisplayed()))
-        onView(withId(R.id.progress)).check(matches(not(isDisplayed())))
-        onView(withId(R.id.empty_state)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.CPILoading)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.cvEmptyState)).check(matches(not(isDisplayed())))
     }
 }

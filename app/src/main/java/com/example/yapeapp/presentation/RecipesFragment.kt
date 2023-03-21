@@ -63,16 +63,16 @@ class RecipesFragment : Fragment() {
         with(binding) {
             response?.fold(
                 left = {
-                    emptyState.show()
-                    errorText.text = getString(R.string.error_api_products)
+                    cvEmptyState.show()
+                    tvErrorText.text = getString(R.string.error_api_products)
                     rvRecipes.hide()
                     etSearch.hide()
                 }, right = {
                     if ((response as Either.Right).r.isEmpty()) {
                         rvRecipes.hide()
                         etSearch.hide()
-                        errorText.text = getString(R.string.there_is_not_products)
-                        emptyState.show()
+                        tvErrorText.text = getString(R.string.there_is_not_products)
+                        cvEmptyState.show()
                     } else {
                         etSearch.show()
                         rvRecipes.show()
@@ -80,7 +80,7 @@ class RecipesFragment : Fragment() {
                     }
                 }
             )
-            progress.hide()
+            cpiLoading.hide()
         }
     }
 

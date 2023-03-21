@@ -43,7 +43,7 @@ class RecipeAdapter(
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val imageView: ImageView = view.findViewById(R.id.image)
+        val imageView: ImageView = view.findViewById(R.id.ivItemImage)
         val name: TextView = view.findViewById(R.id.tvName)
     }
 }
