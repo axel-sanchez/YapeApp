@@ -35,5 +35,13 @@ Este proyecto utiliza Retrofit para mostrar los productos desde una API.
 
 Este proyecto utiliza Dagger para gestionar la inyección de dependencia.
 
+### Persistencia de datos - Room
+
+Este proyecto utiliza la base de datos de Room para almacenar las recetas.
+
+### Testing
+
+La app posee tests hechos con JUnit4 y Espresso
+
 # Guía de instalación
 En caso de no tener instalado Android Studio, descargue la última versión estable. Una vez que tenemos el programa instalado vamos a Get from Version Control y vamos a pegar https://github.com/axel-sanchez/YapeApp.git Una vez hecho eso se va a clonar el proyecto, lo que resta sería conectar un celular y darle al botón verde de Run 'app'
