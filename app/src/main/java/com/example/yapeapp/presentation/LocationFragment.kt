@@ -12,7 +12,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-
+/**
+ * @author Axel Sanchez
+ */
 class LocationFragment : Fragment() {
 
     private var fragmentLocationBinding: FragmentLocationBinding? = null

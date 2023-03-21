@@ -11,7 +11,7 @@ import com.example.yapeapp.data.model.Recipe
  */
 @Dao
 interface RecipeDao {
-    @Query("SELECT * FROM Recipe")
+    @Query("SELECT * FROM Recipe ORDER BY NAME, DESCRIPTION")
     suspend fun getAllRecipes(): List<Recipe?>
 
     @Query("SELECT * FROM Recipe where id = :idRecipe")

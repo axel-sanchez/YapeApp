@@ -61,7 +61,7 @@ class DetailsFragment : Fragment() {
         }
     }
 
-    private fun updateView(recipe: Recipe?) {
+    fun updateView(recipe: Recipe?) {
         with(binding){
             recipe?.let {
                 tvName.text = it.name
