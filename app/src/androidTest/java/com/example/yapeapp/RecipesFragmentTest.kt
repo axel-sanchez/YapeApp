@@ -31,7 +31,7 @@ class RecipesFragmentTest {
     }
 
     @Test
-    fun should_show_product_details_when_click_item() {
+    fun should_show_recipe_details_when_click_item() {
         onView(withId(R.id.rvRecipes)).perform(RecyclerViewActions.actionOnItemAtPosition<RecipeAdapter.ViewHolder>(0, click()))
         onView(withId(R.id.tvName)).check(matches(withText("Asado")))
     }
